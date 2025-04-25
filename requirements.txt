@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]
+asyncpg
+psycopg2-binary
+pydantic
+python-dotenv
+redis
+loguru
+openai
+passlib[bcrypt]
+python-jose[cryptography]
+alembic
