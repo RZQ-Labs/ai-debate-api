@@ -5,7 +5,7 @@ from datetime import datetime
 
 class ArgumentBase(BaseModel):
     content: str
-
+    by: str
 
 class ArgumentCreate(ArgumentBase):
     pass
