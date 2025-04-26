@@ -54,7 +54,7 @@ alembic upgrade head
 ```
 
 ### Running Locally (without Docker)
-You'll need to install and setup the following yourself:
+You'll need to install and setup the following:
 
 1. PostgreSQL
 2. Redis
