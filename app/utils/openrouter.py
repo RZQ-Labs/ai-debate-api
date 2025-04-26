@@ -1,9 +1,9 @@
-import os
 import httpx
+from app.settings import settings
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
-OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "deepseek-chat")
+OPENROUTER_API_KEY = settings.openrouter_api_key
+OPENROUTER_BASE_URL = settings.openrouter_api_url
+OPENROUTER_MODEL = settings.openrouter_model_name
 
 async def call_openrouter(prompt: str, system_prompt: str = None, max_tokens: int = 1024):
     headers = {

@@ -8,6 +8,11 @@ python-dotenv
 redis
 loguru
 openai
+httpx
 passlib[bcrypt]
 python-jose[cryptography]
 alembic
+transformers
+torch
+sentencepiece
+pydantic-settings
