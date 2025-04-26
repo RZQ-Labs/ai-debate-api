@@ -54,6 +54,15 @@ alembic upgrade head
 ```
 
 ### Running Locally (without Docker)
+You'll need to install and setup the following yourself:
+
+1. PostgreSQL
+2. Redis
+3. OpenAI API key
+4. OpenRouter API key
+5. IndoBERT model path
+
+After setting up the above, you can run the application:
 ```bash
 pip install -r requirements.txt
 uvicorn app.main:app --reload
