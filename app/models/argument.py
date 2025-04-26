@@ -8,6 +8,6 @@ class Argument(Base):
     id = Column(Integer, primary_key=True, index=True)
     session_id = Column(Integer, ForeignKey("sessions.id"), nullable=False)
     content = Column(Text, nullable=False)
-    by = Column(String, nullable=False)
+    role = Column(String, nullable=False)
     created_at = Column(DateTime, default=func.now())
     session = relationship("Session", back_populates="arguments")

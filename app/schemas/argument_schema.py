@@ -5,7 +5,7 @@ from datetime import datetime
 
 class ArgumentBase(BaseModel):
     content: str
-    by: str
+    role: str
 
 class ArgumentCreate(ArgumentBase):
     pass
@@ -17,4 +17,3 @@ class Argument(ArgumentBase):
 
     class Config:
         orm_mode = True
-   
