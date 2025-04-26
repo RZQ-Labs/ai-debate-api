@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, ForeignKey, DateTime, func
+from sqlalchemy import Column, Integer, ForeignKey, Text, DateTime, func
 from . import Base
 from sqlalchemy.orm import relationship
 
@@ -6,6 +6,7 @@ class Session(Base):
     __tablename__ = "sessions"
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    name = Column(Text, nullable=False)
     started_at = Column(DateTime, default=func.now())
     ended_at = Column(DateTime, nullable=True)
     user = relationship("User", back_populates="sessions")
