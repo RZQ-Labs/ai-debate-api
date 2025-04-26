@@ -16,3 +16,4 @@ transformers
 torch
 sentencepiece
 pydantic-settings
+sentence-transformers
