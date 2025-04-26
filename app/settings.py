@@ -27,6 +27,12 @@ class Settings(BaseSettings):
     # Loguru
     loguru_level: str = Field("INFO", env="LOGURU_LEVEL")
 
+    # JWT
+    jwt_secret_key: str = Field("", env="JWT_SECRET_KEY")
+    jwt_algorithm: str = Field("HS256", env="JWT_ALGORITHM")
+    jwt_access_token_expires_in: int = Field(1800, env="JWT_ACCESS_TOKEN_EXPIRES_IN")
+    jwt_refresh_token_expires_in: int = Field(604800, env="JWT_REFRESH_TOKEN_EXPIRES_IN")
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

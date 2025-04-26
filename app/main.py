@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from app.routes import llm
-
+from app.routes import llm, user
 
 BASE_URL = "/api/v1"
 API_VERSION = "1.0.0"
@@ -16,4 +15,6 @@ app = FastAPI(prefix=BASE_URL,
 def read_root():
     return {"message": "AI Debate Trainer Backend is running."}
 
-app.include_router(llm.router, prefix=f"{BASE_URL}/llm")
+
+app.include_router(user.router, prefix=f"{BASE_URL}")
+app.include_router(llm.router, prefix=f"{BASE_URL}")

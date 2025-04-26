@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Integer, ForeignKey, Text, String, DateTime
+from sqlalchemy import Column, Integer, ForeignKey, Text, String, DateTime, func
 from . import Base
-from datetime import datetime, timezone
 from sqlalchemy.orm import relationship
 
 
@@ -10,5 +9,5 @@ class Argument(Base):
     session_id = Column(Integer, ForeignKey("sessions.id"), nullable=False)
     content = Column(Text, nullable=False)
     by = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=func.now())
     session = relationship("Session", back_populates="arguments")

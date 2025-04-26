@@ -56,7 +56,7 @@ services:
     volumes:
       - .:/app
     environment:
-      - DATABASE_URL=postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-debate_trainer}
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-debate_trainer}
       - REDIS_URL=redis://redis:6379/0
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - INDOBERT_MODEL_PATH=${INDOBERT_MODEL_PATH:-/models/indobert}

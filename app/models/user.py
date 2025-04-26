@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime
-from datetime import datetime, timezone
+from sqlalchemy import Column, Integer, String, DateTime, func
 from . import Base
 from sqlalchemy.orm import relationship
 
@@ -10,5 +9,5 @@ class User(Base):
     password = Column(String, nullable=False)
     name = Column(String, nullable=True)
     email = Column(String, nullable=True)
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=func.now())
     sessions = relationship("Session", back_populates="user")
