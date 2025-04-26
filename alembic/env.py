@@ -29,7 +29,8 @@ target_metadata = Base.metadata
 # ... etc.
 
 from app.settings import settings
-config.set_main_option('sqlalchemy.url', settings.database_url)
+alembic_url = settings.database_url.replace('+asyncpg', '+psycopg2')
+config.set_main_option('sqlalchemy.url', alembic_url)
 
 
 def run_migrations_offline() -> None:

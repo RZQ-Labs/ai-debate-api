@@ -11,6 +11,9 @@ class UserCreate(UserBase):
     email: str
     name: str
 
+class UserLogin(UserBase):
+    password: str
+
 class User(UserBase):
     id: int
     created_at: datetime
