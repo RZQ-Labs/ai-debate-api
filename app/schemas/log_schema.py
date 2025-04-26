@@ -8,3 +8,6 @@ class Log(BaseModel):
     message: str
     level: str
     timestamp: datetime
+
+    class Config:
+        orm_mode = True

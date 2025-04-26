@@ -14,5 +14,6 @@ class Session(SessionBase):
     user_id: int
     started_at: datetime
     ended_at: Optional[datetime]
+
     class Config:
         orm_mode = True

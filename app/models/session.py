@@ -6,4 +6,5 @@ class Session(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     started_at = Column(DateTime)
+    ended_at = Column(DateTime, nullable=True)
     # Add more fields as needed
