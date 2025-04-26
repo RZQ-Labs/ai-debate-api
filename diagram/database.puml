@@ -1,0 +1,52 @@
+@startuml ai-debate-trainer
+' Database schema for ai-debate-trainer
+entity "User" as users {
+    *id : int <<PK>>
+    --
+    username : string
+    password : string
+    name : string
+    email : string
+    created_at : datetime
+}
+
+entity "Session" as sessions {
+    *id : int <<PK>>
+    user_id : int <<FK>>
+    started_at : datetime
+    ended_at : datetime
+}
+
+entity "Argument" as arguments {
+    *id : int <<PK>>
+    session_id : int <<FK>>
+    content : text
+    role : string
+    created_at : datetime
+}
+
+entity "Prompt" as prompts {
+    *id : int <<PK>>
+    user_id : int <<FK>>
+    name : string
+    system_prompt : string
+    created_at : datetime
+    updated_at : datetime
+}
+
+entity "Log" as logs {
+    *id : int <<PK>>
+    message : text
+    level : string
+    timestamp : datetime
+}
+
+' Relationships
+users ||--o{ sessions : "has"
+sessions ||--o{ arguments : "has"
+users ||--o{ prompts : "has"
+
+sessions }o--|| users : "belongs to"
+arguments }o--|| sessions : "belongs to"
+prompts }o--|| users : "belongs to"
+@enduml
