@@ -5,7 +5,7 @@ from ..schemas.user_schema import UserCreate, UserLogin, User as UserSchema
 from ..database import get_db
 from ..utils.auth import create_access_token, create_refresh_token, verify_password, get_password_hash
 from ..settings import settings
-from jose import JWTError
+from jose import JWTError, jwt
 from devtools import debug
 
 router = APIRouter(
