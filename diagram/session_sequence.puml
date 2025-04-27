@@ -1,0 +1,30 @@
+@startuml session_sequence
+
+actor Client
+participant "FastAPI App" as App
+participant "Auth (get_current_user)" as Auth
+participant "Database (AsyncSession)" as DB
+
+== Start Session ==
+Client -> App: POST /api/v1/session/start (SessionCreate)
+App -> Auth: get_current_user(token)
+Auth -> DB: SELECT user WHERE username=token.sub
+DB --> Auth: User instance
+Auth --> App: User instance
+App -> DB: INSERT INTO sessions (name, user_id, started_at)
+DB --> App: New Session
+App --> Client: 200 OK (Session)
+
+== End Session ==
+Client -> App: POST /api/v1/session/end (session_id)
+App -> Auth: get_current_user(token)
+Auth -> DB: SELECT user WHERE username=token.sub
+DB --> Auth: User instance
+Auth --> App: User instance
+App -> DB: SELECT session WHERE id=session_id
+DB --> App: Session instance
+App -> DB: UPDATE session SET ended_at=now()
+DB --> App: Updated Session
+App --> Client: 200 OK (Session)
+
+@enduml
