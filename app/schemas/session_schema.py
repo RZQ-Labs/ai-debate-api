@@ -9,6 +9,9 @@ class SessionBase(BaseModel):
 class SessionCreate(SessionBase):
     pass
 
+class SessionClose(BaseModel):
+    id: int
+
 class Session(SessionBase):
     id: int
     user_id: int
